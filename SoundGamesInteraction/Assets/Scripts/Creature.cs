@@ -2,35 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Creature : MonoBehaviour
+public class Creature : MonoBehaviour
 {
-    public enum CreatureTypeEnum
+    public  enum CreatureTypeEnum
     {
-        Animal,
+        Real,
         Imposter
     }
     public CreatureTypeEnum CreatureType;
 
-    private bool isCaptured = false;
-    [SerializeField] private KeyCode keyCode = KeyCode.Space;
+    [SerializeField] protected AudioClip audioClip;
+    [SerializeField] protected float MinDistance;
+    [SerializeField] protected float MaxDistance;
 
-    private void OnTriggerStay(Collider other)
-    {
-        Debug.Log("collide");
-
-        if (Input.GetKey(keyCode))
-        {
-            Capture();
-        }
-    }
-
-    private void Capture()
-    {
-        if (!isCaptured)
-        {
-            gameObject.SetActive(false);
-            isCaptured = true;
-        }
-    }
-
+    protected static KeyCode keyCode = KeyCode.Space;
+    protected AudioSource source;
 }
