@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Animal : Creature
 {
-    private bool isCaptured = false;
+    public bool isCaptured = false;
 
     private void Awake()
     {

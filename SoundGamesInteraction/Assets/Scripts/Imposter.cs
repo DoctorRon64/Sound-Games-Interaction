@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Imposter : Creature
 {
-    private NavMeshAgent agent;
+    private bool Activated = false;
+
+    public PlayerController player;
+    public Transform target;
 
     private void Awake()
     {
         CreatureType = CreatureTypeEnum.Imposter;
-        agent = GetComponent<NavMeshAgent>();
+
+        player = FindObjectOfType<PlayerController>();
+        target = player.transform;
 
         source = GetComponent<AudioSource>();
         source.clip = audioClip;
@@ -23,12 +29,17 @@ public class Imposter : Creature
     {
         if (Input.GetKey(keyCode) && CreatureType == CreatureTypeEnum.Imposter)
         {
-            Follow();
+            Activated = true;
         }
     }
 
-    private void Follow()
+    private void Update()
     {
-        Debug.Log("follow");
+        if (target != null && Activated)
+        {
+            Vector3 direction = target.position - transform.position;
+            direction.Normalize();
+            transform.position += direction * 5f * Time.deltaTime;
+        }
     }
 }
