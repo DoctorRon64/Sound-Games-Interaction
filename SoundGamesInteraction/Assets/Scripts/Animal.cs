@@ -18,7 +18,7 @@ public class Animal : Creature
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(keyCode) && CreatureType == CreatureTypeEnum.Real)
+        if (Input.GetKey(keyCode) && CreatureType == CreatureTypeEnum.Real)
         {
             Capture();
         } 

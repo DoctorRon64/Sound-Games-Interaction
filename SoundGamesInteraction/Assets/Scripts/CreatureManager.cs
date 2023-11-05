@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CreatureManager : MonoBehaviour
 {
@@ -16,19 +17,17 @@ public class CreatureManager : MonoBehaviour
     [SerializeField] private List<GameObject> animalPrefabs;
     [SerializeField] private List<GameObject> imposterPrefabs;
 
-    private List<FauxCreatuerBody> creatuerBodies;
+    [SerializeField] private AudioSource AlmostThere;
+
     private List<GameObject> currentAnimals;
     private List<GameObject> currentImposters;
 
     public int capturedAnimals = 0;
 
-    [SerializeField] private float batchAttractionDistance = 10.0f;
-
     void Start()
     {
         currentAnimals = new List<GameObject>();
         currentImposters = new List<GameObject>();
-        creatuerBodies = new List<FauxCreatuerBody>();
 
         SpawnAnimals();
         SpawnImposters();
@@ -36,6 +35,7 @@ public class CreatureManager : MonoBehaviour
 
     private void Update()
     {
+        
     }
 
     private void SpawnAnimals()
@@ -48,12 +48,9 @@ public class CreatureManager : MonoBehaviour
                 _randomPosition = earth.transform.position + Random.onUnitSphere * radius;
             } while (IsPositionTooClose(_randomPosition, currentAnimals, minDistanceBetweenObjects));
 
-            GameObject _newAnimal = Instantiate(_animalPrefab, _randomPosition, Quaternion.identity, animalParent);
+            Quaternion _rotation = Quaternion.LookRotation(_randomPosition - earth.transform.position, Vector3.up);
+            GameObject _newAnimal = Instantiate(_animalPrefab, _randomPosition, _rotation, animalParent);
             Animal _animalScript = _newAnimal.GetComponent<Animal>();
-            FauxCreatuerBody _animalGravityScript = _newAnimal.GetComponent<FauxCreatuerBody>();
-            creatuerBodies.Add(_animalGravityScript);
-
-            _animalGravityScript.GetAttractor(earth.GetComponent<FauxGravityAttractor>());
             _animalScript.Setup(this);
 
             currentAnimals.Add(_newAnimal);
@@ -70,12 +67,10 @@ public class CreatureManager : MonoBehaviour
                 _randomPosition = earth.transform.position + Random.onUnitSphere * radius;
             } while (IsPositionTooClose(_randomPosition, currentImposters, minDistanceBetweenObjects));
 
-            GameObject _newImposter = Instantiate(_imposterPrefab, _randomPosition, Quaternion.identity, imposterParent);
+            Quaternion _rotation = Quaternion.LookRotation(_randomPosition - earth.transform.position, Vector3.up);
+            
+            GameObject _newImposter = Instantiate(_imposterPrefab, _randomPosition, _rotation, imposterParent);
             Imposter _imposterScript = _newImposter.GetComponent<Imposter>();
-            FauxCreatuerBody _imposterGravityScript = _newImposter.GetComponent<FauxCreatuerBody>();
-            creatuerBodies.Add(_imposterGravityScript);
-
-            _imposterGravityScript.GetAttractor(earth.GetComponent<FauxGravityAttractor>());
             _imposterScript.Setup(this);
             currentImposters.Add(_newImposter);
         }
@@ -88,7 +83,15 @@ public class CreatureManager : MonoBehaviour
         float vectorFactor = capturedAnimals * scaleFactor;
         earth.transform.localScale -= new Vector3(vectorFactor, vectorFactor, vectorFactor);
 
-        AttractCreaturesBatched();
+
+        if (capturedAnimals == animalPrefabs.Count - 1)
+        {
+            AlmostThere.Play();
+        } 
+        else if (capturedAnimals == animalPrefabs.Count)
+        {
+            SceneManager.LoadScene("Outro");
+        }
     }
 
     private bool IsPositionTooClose(Vector3 position, List<GameObject> objects, float minDistance)
@@ -101,16 +104,5 @@ public class CreatureManager : MonoBehaviour
             }
         }
         return false;
-    }
-
-    private void AttractCreaturesBatched()
-    {
-        foreach (var creatureBody in creatuerBodies)
-        {
-            if (Vector3.Distance(creatureBody.transform.position, earth.transform.position) < batchAttractionDistance)
-            {
-                creatureBody.Attract();
-            }
-        }
     }
 }

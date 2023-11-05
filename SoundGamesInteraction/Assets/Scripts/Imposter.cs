@@ -29,7 +29,7 @@ public class Imposter : Creature
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(keyCode) && CreatureType == CreatureTypeEnum.Imposter)
+        if (Input.GetKey(keyCode) && CreatureType == CreatureTypeEnum.Imposter)
         {
             Activated = true;
         }
