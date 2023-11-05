@@ -15,6 +15,12 @@ public class Creature : MonoBehaviour
     [SerializeField] protected float MinDistance;
     [SerializeField] protected float MaxDistance;
 
+    protected CreatureManager creatureManager;
     protected static KeyCode keyCode = KeyCode.Space;
     protected AudioSource source;
+
+    public void Setup(CreatureManager _creatureManager)
+    {
+        creatureManager = _creatureManager;
+    }
 }
