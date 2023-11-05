@@ -7,6 +7,8 @@ using UnityEngine.AI;
 public class Imposter : Creature
 {
     private bool Activated = false;
+    private float Speed = 10f;
+    public float FollowDistance = 1f;
 
     public PlayerController player;
     public Transform target;
@@ -38,8 +40,13 @@ public class Imposter : Creature
         if (target != null && Activated)
         {
             Vector3 direction = target.position - transform.position;
-            direction.Normalize();
-            transform.position += direction * 5f * Time.deltaTime;
+
+            float distance = direction.magnitude;
+            if (distance > FollowDistance)
+            {
+                direction.Normalize();
+                transform.position += direction * (distance - FollowDistance) * Speed * Time.deltaTime;
+            }
         }
     }
 }

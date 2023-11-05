@@ -138,7 +138,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 5.9
+  MinDistance: 3
   MaxDistance: 13
   Pan2D: 0
   rolloffMode: 2
@@ -149,22 +149,22 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.45384616
+      time: 0.23076923
       value: 1
-      inSlope: -5.8638787
-      outSlope: -5.8638787
+      inSlope: -4.3350663
+      outSlope: -4.3350663
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.06635277
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -0.027237656
-      outSlope: -0.027237656
+      inSlope: -0.38369566
+      outSlope: -0.38369566
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.28009412
+      inWeight: 0.16940509
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -225,7 +225,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2886488325257320045
 MonoBehaviour:
@@ -243,5 +243,6 @@ MonoBehaviour:
   audioClip: {fileID: 0}
   MinDistance: 6
   MaxDistance: 13
+  FollowDistance: 6
   player: {fileID: 0}
   target: {fileID: 0}

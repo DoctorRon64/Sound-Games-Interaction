@@ -77,11 +77,11 @@ AudioSource:
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: 0.023723122
-      outSlope: 0.023723122
+      inSlope: -0.38369566
+      outSlope: -0.38369566
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.22832857
+      inWeight: 0.16940509
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -142,7 +142,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3.2
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1436059318477473432
 MonoBehaviour:

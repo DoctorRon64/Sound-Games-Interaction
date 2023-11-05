@@ -21,7 +21,6 @@ public class AudioSceneChange : MonoBehaviour
     {
         if (isPlaying && !audioSource.isPlaying)
         {
-            // The audio clip has finished playing, so load the specified scene.
             SceneManager.LoadScene(sceneToLoad);
         }
     }
