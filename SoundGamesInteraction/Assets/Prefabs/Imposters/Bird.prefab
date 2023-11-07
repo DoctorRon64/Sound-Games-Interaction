@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5735809244991988487
+--- !u!1001 &2312732547694356811
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2798347997015013992, guid: 7bf53d0ef87ca844e91de6ddc937c797, type: 3}
       propertyPath: m_Name
-      value: Dog
+      value: Bird
       objectReference: {fileID: 0}
     - target: {fileID: 2798347997015013994, guid: 7bf53d0ef87ca844e91de6ddc937c797, type: 3}
       propertyPath: m_RootOrder
@@ -58,6 +58,6 @@ PrefabInstance:
     - target: {fileID: 2886488325257320045, guid: 7bf53d0ef87ca844e91de6ddc937c797, type: 3}
       propertyPath: audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 2c2ddf0316dff334d99f78d30b7445f1, type: 3}
+      objectReference: {fileID: 8300000, guid: 4e01dc691790fb2439dcc8ede079ee5b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bf53d0ef87ca844e91de6ddc937c797, type: 3}

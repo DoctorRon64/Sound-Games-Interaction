@@ -270,8 +270,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   earth: {fileID: 1026952693}
   radius: 25
-  scaleFactor: 3
-  minDistanceBetweenObjects: 3
+  scaleFactor: 1
+  minDistanceBetweenObjects: 10
   animalParent: {fileID: 902976622}
   imposterParent: {fileID: 1861293314}
   animalPrefabs:
@@ -279,8 +279,15 @@ MonoBehaviour:
   - {fileID: 8247442633476437283, guid: 3813d6e5c49d830479c1fb0a1b4533a4, type: 3}
   - {fileID: 4738624078691882180, guid: 9dad4f77b6fa44a449bd4d326833ed7e, type: 3}
   - {fileID: 3793380127698305067, guid: a298005abe71cab48964d4bd888005ed, type: 3}
+  - {fileID: 6587927032135928046, guid: 25ba99cd5443862438d42540bfabccf1, type: 3}
+  - {fileID: 3855483235733512665, guid: be5a88c01e69a8d4798867906660453b, type: 3}
   imposterPrefabs:
+  - {fileID: 1620480580307780384, guid: 2bc7f0af00ef40247aee7bae4b7628de, type: 3}
+  - {fileID: 279117087582844762, guid: aa6f553edf448784ba80208f5dabe293, type: 3}
+  - {fileID: 8552137001182829741, guid: 6f760626f64bf3a4fb6568d31397e6db, type: 3}
+  - {fileID: 582087802339231682, guid: d2ecba984158c594b869e2d92789f158, type: 3}
   - {fileID: 7587451236986083695, guid: 3c7fbaf151577164c979deb32e71bb71, type: 3}
+  - {fileID: 490262695666193187, guid: fefc641856af6c6408bdd08c9e1877d6, type: 3}
   AlmostThere: {fileID: 934251258}
   capturedAnimals: 0
 --- !u!1 &389650306
