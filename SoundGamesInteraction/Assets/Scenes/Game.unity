@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &151966897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   earth: {fileID: 1026952693}
   radius: 25
-  scaleFactor: 1
+  scaleFactor: 1.5
   minDistanceBetweenObjects: 10
   animalParent: {fileID: 902976622}
   imposterParent: {fileID: 1861293314}
