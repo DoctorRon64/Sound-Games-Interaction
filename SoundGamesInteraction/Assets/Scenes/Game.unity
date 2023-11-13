@@ -271,7 +271,7 @@ MonoBehaviour:
   earth: {fileID: 1026952693}
   radius: 25
   scaleFactor: 1.5
-  minDistanceBetweenObjects: 10
+  minDistanceBetweenObjects: 6
   animalParent: {fileID: 902976622}
   imposterParent: {fileID: 1861293314}
   animalPrefabs:
@@ -387,7 +387,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8d828cc1c680de949b5bd13258f2067f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.363
+  m_Volume: 0.07
   m_Pitch: 1
   Loop: 1
   Mute: 0

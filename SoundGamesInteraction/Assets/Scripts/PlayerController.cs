@@ -29,11 +29,8 @@ public class PlayerController : MonoBehaviour
         } 
         else if (moveDir.x == 0 && moveDir.y == 0 && moveDir.z == 0)
         {
-            if (isCarSoundPlaying)
-            {
-                CarSource.Stop();
-                isCarSoundPlaying = false;
-            }
+            CarSource.Stop();
+            isCarSoundPlaying = false;
         }
     }
 
